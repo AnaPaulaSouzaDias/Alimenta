@@ -1,2 +1,2 @@
 # Alimenta
-Rede Social baseado n Objetivo da ODS 2 da Organização das Nações Unidas
+Rede Social baseado no Objetivo da ODS2 da Organização das Nações Unidas
