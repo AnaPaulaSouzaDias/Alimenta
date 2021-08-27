@@ -1,29 +1,28 @@
 package com.Alimenta.Alimenta.model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "tb_usuario")
+//@Entity
+//@Table(name = "tb_usuario")
 public class usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_usuario;
+    private long id;
 
     @NotBlank
-    private String tipo_usuario;
+    private String tipoUsuario;
 
     @NotBlank
     private String nome;
 
     @NotBlank
-    @Size(min=12, max=20)
+    @Email
     private String login;
 
     @NotBlank
@@ -31,11 +30,11 @@ public class usuario {
     private String senha;
 
     public String getTipo_usuario() {
-        return tipo_usuario;
+        return tipoUsuario;
     }
 
     public void setTipo_usuario(String tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
+        this.tipoUsuario = tipo_usuario;
     }
 
     public String getNome() {

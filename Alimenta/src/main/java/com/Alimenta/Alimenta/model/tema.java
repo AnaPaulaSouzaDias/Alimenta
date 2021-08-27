@@ -6,42 +6,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_tema")
+//@Entity
+//@Table(name = "tb_tema")
 public class tema {
 
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private long id_tema;
+	 private long id;
 	 
-	 private boolean fome_zero;
+	 private boolean fomeZero;
 	 
-	 private boolean seguranca_alimentar;
+	 private boolean segurancaAlimentar;
 	 
-	 private boolean agricultura_sustentavel;
+	 private boolean agriculturaSustentavel;
 
 	public boolean isFome_zero() {
-		return fome_zero;
+		return fomeZero;
 	}
 
 	public void setFome_zero(boolean fome_zero) {
-		this.fome_zero = fome_zero;
+		this.fomeZero = fome_zero;
 	}
 
 	public boolean isSeguranca_alimentar() {
-		return seguranca_alimentar;
+		return segurancaAlimentar;
 	}
 
 	public void setSeguranca_alimentar(boolean seguranca_alimentar) {
-		this.seguranca_alimentar = seguranca_alimentar;
+		this.segurancaAlimentar = seguranca_alimentar;
 	}
 
 	public boolean isAgricultura_sustentavel() {
-		return agricultura_sustentavel;
+		return agriculturaSustentavel;
 	}
 
 	public void setAgricultura_sustentavel(boolean agricultura_sustentavel) {
-		this.agricultura_sustentavel = agricultura_sustentavel;
+		this.agriculturaSustentavel = agricultura_sustentavel;
 	}
 	 
 }
