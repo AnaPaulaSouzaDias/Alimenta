@@ -8,6 +8,6 @@ import com.Alimenta.Alimenta.model.Tema;
 
 public interface TemaRepository extends JpaRepository<Tema, Long> {
 
-	public List<Tema> findBySelecaoContainingIgnoreCase(String selecao);
+	public List<Tema> findAllBySelecaoContainingIgnoreCase(String selecao);
 	
 }

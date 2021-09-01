@@ -21,31 +21,39 @@ public class Tema {
 	 private boolean agriculturaSustentavel;
 	 
 	 private String selecao;	
+	
+	public long getId() {
+		return id;
+	}
 
-	public boolean isFome_zero() {
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public boolean isFomeZero() {
 		return fomeZero;
 	}
 
-	public void setFome_zero(boolean fome_zero) {
-		this.fomeZero = fome_zero;
+	public void setFomeZero(boolean fomeZero) {
+		this.fomeZero = fomeZero;
 	}
 
-	public boolean isSeguranca_alimentar() {
+	public boolean isSegurancaAlimentar() {
 		return segurancaAlimentar;
 	}
 
-	public void setSeguranca_alimentar(boolean seguranca_alimentar) {
-		this.segurancaAlimentar = seguranca_alimentar;
+	public void setSegurancaAlimentar(boolean segurancaAlimentar) {
+		this.segurancaAlimentar = segurancaAlimentar;
 	}
 
-	public boolean isAgricultura_sustentavel() {
+	public boolean isAgriculturaSustentavel() {
 		return agriculturaSustentavel;
 	}
 
-	public void setAgricultura_sustentavel(boolean agricultura_sustentavel) {
-		this.agriculturaSustentavel = agricultura_sustentavel;
+	public void setAgriculturaSustentavel(boolean agriculturaSustentavel) {
+		this.agriculturaSustentavel = agriculturaSustentavel;
 	}
-	
+
 	public String getSelecao() {
 		return selecao;
 	}
