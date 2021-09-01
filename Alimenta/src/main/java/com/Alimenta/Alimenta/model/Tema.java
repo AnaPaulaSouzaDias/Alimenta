@@ -6,9 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "tb_tema")
-public class tema {
+@Entity
+@Table(name = "tb_tema")
+public class Tema {
 
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,8 @@ public class tema {
 	 private boolean segurancaAlimentar;
 	 
 	 private boolean agriculturaSustentavel;
+	 
+	 private String selecao;	
 
 	public boolean isFome_zero() {
 		return fomeZero;
@@ -43,5 +45,12 @@ public class tema {
 	public void setAgricultura_sustentavel(boolean agricultura_sustentavel) {
 		this.agriculturaSustentavel = agricultura_sustentavel;
 	}
-	 
+	
+	public String getSelecao() {
+		return selecao;
+	}
+
+	public void setSelecao(String selecao) {
+		this.selecao = selecao;
+	}
 }
