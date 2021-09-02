@@ -1,20 +1,23 @@
 package com.Alimenta.Alimenta.model;
 
-import java.sql.Date;
+import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-//@Entity
-//@Table(name = "tb_postagem")
+@Entity
+@Table(name = "tb_postagem")
 public class Postagem {
 
 	@Id
@@ -26,13 +29,14 @@ public class Postagem {
 	private String titulo;
 	
 	@NotBlank
-	@Size(min=50,max=500)
+	@Size(min=10,max=500)
 	private String texto;
 	
 	private boolean imagem;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	private Date dataHora;
+	//@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataHora = new java.sql.Date(System.currentTimeMillis());
 	
 	@ManyToOne
     @JsonIgnoreProperties ("postagem")

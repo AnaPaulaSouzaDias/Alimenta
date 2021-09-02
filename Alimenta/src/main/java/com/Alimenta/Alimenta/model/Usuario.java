@@ -3,18 +3,20 @@ package com.Alimenta.Alimenta.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-//@Entity
-//@Table(name = "tb_usuario")
+@Entity
+@Table(name = "tb_usuario")
 public class Usuario {
 
     @Id
@@ -40,12 +42,20 @@ public class Usuario {
     @JsonIgnoreProperties ("usuario")
     private List <Postagem> postagem;
 
-    public String getTipo_usuario() {
+    public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipo_usuario(String tipo_usuario) {
-        this.tipoUsuario = tipo_usuario;
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
     public String getNome() {
@@ -71,5 +81,13 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
 
 }
