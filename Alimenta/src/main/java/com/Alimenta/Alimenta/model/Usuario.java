@@ -19,6 +19,7 @@ public class Usuario {
     private String tipoUsuario;
 
     @NotBlank
+    @Size(min=5)
     private String nome;
 
     @NotBlank
