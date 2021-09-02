@@ -1,11 +1,17 @@
 package com.Alimenta.Alimenta.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 //@Entity
 //@Table(name = "tb_usuario")
@@ -29,6 +35,10 @@ public class Usuario {
     @NotBlank
     @Size(min=8, max=15)
     private String senha;
+    
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties ("usuario")
+    private List <Postagem> postagem;
 
     public String getTipo_usuario() {
         return tipoUsuario;

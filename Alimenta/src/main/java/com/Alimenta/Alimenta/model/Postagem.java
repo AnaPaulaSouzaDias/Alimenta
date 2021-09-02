@@ -5,10 +5,13 @@ import java.sql.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 //@Entity
 //@Table(name = "tb_postagem")
@@ -30,6 +33,14 @@ public class Postagem {
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataHora;
+	
+	@ManyToOne
+    @JsonIgnoreProperties ("postagem")
+    private Usuario usuario;
+	
+	@ManyToOne
+    @JsonIgnoreProperties ("postagem")
+    private Tema tema;
 
 	public long getId() {
 		return id;
@@ -70,6 +81,21 @@ public class Postagem {
 	public void setDataHora(Date dataHora) {
 		this.dataHora = dataHora;
 	}
-	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Tema getTema() {
+		return tema;
+	}
+
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
 	
 }
