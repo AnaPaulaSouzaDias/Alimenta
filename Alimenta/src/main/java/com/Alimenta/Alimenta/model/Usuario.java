@@ -13,6 +13,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.br.CNPJ;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -23,19 +25,24 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank
-    private String tipoUsuario;
-
-    @NotBlank
-    @Size(min=5)
+    @NotBlank(message = "Nome é obrigatório")
+    @Size(min=10)
     private String nome;
+    
+    @NotBlank(message = "CNPJ é obrigatório")
+    @CNPJ(message = "CNPJ inválido") //18 digitos (00.000.000/0000-00)
+   	private String cnpj;
+    
+    @NotBlank(message = "Usuario é obrigatório")
+    @Size(min=5,max=50)
+    private String usuario;
+
+	@NotBlank(message = "E-mail é obrigatório")
+    @Email(message = "E-mail inválido")
+    private String email;
 
     @NotBlank
-    @Email
-    private String login;
-
-    @NotBlank
-    @Size(min=8, max=15)
+    @Size (min=6,max=100)
     private String senha;
     
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
@@ -50,14 +57,6 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -66,12 +65,28 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getLogin() {
-        return login;
+    public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
@@ -89,5 +104,4 @@ public class Usuario {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-
 }

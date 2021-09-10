@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_postagem")
+@Table(name = "tb_postagens")
 public class Postagem {
 
 	@Id
@@ -25,16 +25,15 @@ public class Postagem {
     private long id;
 	
 	@NotBlank
-	@Size(min=6,max=20)
+	@Size(min=6,max=80)
 	private String titulo;
 	
 	@NotBlank
-	@Size(min=10,max=500)
+	@Size(min=20,max=500)
 	private String texto;
 	
 	private boolean imagem;
 	
-	//@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataHora = new java.sql.Date(System.currentTimeMillis());
 	
@@ -100,6 +99,5 @@ public class Postagem {
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
-	}
-	
+	}	
 }
