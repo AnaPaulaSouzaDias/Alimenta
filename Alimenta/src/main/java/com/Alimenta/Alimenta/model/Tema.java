@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,7 +28,9 @@ public class Tema {
 	 
 	 private boolean agriculturaSustentavel;
 	 
-	 private String selecao;	
+	 @NotBlank
+	 @Size (min= 8,max=100) 
+	 private String palavraChave;
 	 
 	 @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
      @JsonIgnoreProperties ("tema")
@@ -65,12 +69,12 @@ public class Tema {
 		this.agriculturaSustentavel = agriculturaSustentavel;
 	}
 
-	public String getSelecao() {
-		return selecao;
+	public String getPalavraChave() {
+		return palavraChave;
 	}
 
-	public void setSelecao(String selecao) {
-		this.selecao = selecao;
+	public void setPalavraChave(String palavraChave) {
+		this.palavraChave = palavraChave;
 	}
 	
 	public List<Postagem> getPostagem() {
