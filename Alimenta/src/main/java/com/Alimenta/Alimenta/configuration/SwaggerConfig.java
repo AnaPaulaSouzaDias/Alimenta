@@ -46,8 +46,7 @@ public class SwaggerConfig {
 	}
 	private static Contact contact() {
 		return new Contact("Henrique Uriel, Ana P. Souza, Ariel Pirangy, Stefani Tosi e Talita Gleice", 
-				"https://github.com/henriqueuriel, https://github.com/AnaPaulaSouzaDias, https://github.com/pirangy,"
-				+ "https://github.com/stefanitosi2, https://github.com/talita032", "rr.2015sp@gmail.com");
+				" https://github.com/AnaPaulaSouzaDias", "rr.2015sp@gmail.com");
 	}
 	private static List<Response> responseMessage() { return new ArrayList<Response>() {
 		private static final long serialVersionUID = 1L;
