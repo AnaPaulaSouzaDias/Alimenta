@@ -32,7 +32,7 @@ public class Postagem {
 	@Size(min=20,max=500)
 	private String texto;
 	
-	private boolean imagem;
+	private String imagem;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataHora = new java.sql.Date(System.currentTimeMillis());
@@ -69,11 +69,11 @@ public class Postagem {
 		this.texto = texto;
 	}
 
-	public boolean isImagem() {
+	public String getImagem() {
 		return imagem;
 	}
 
-	public void setImagem(boolean imagem) {
+	public void setImagem(String imagem) {
 		this.imagem = imagem;
 	}
 
