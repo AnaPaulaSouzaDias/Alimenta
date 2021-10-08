@@ -26,9 +26,6 @@ public class Tema {
 	 @NotNull
 	 private String descricao;
 	 
-	 @NotBlank
-	 @Size (min= 5,max=50) 
-	 private String palavraChave;
 	 
 	 @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
      @JsonIgnoreProperties ("tema")
@@ -51,14 +48,6 @@ public class Tema {
 			this.descricao = descricao;
 	}
 
-	public String getPalavraChave() {
-		return palavraChave;
-	}
-
-	public void setPalavraChave(String palavraChave) {
-		this.palavraChave = palavraChave;
-	}
-	
 	public List<Postagem> getPostagem() {
 		return postagem;
 	}
