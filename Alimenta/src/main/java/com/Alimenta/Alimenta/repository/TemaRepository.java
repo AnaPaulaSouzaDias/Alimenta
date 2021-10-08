@@ -9,5 +9,5 @@ import com.Alimenta.Alimenta.model.Tema;
 
 @Repository
 public interface TemaRepository extends JpaRepository<Tema, Long> {
-	public List<Tema> findAllByPalavraChaveContainingIgnoreCase(String palavraChave);	
+	public List<Tema> findAllByDescricaoContainingIgnoreCase(String descricao);	
 }

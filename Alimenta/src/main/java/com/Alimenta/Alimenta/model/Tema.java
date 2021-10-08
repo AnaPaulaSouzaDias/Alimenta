@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,14 +23,11 @@ public class Tema {
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private long id;
 	 
-	 private boolean fomeZero;
-	 
-	 private boolean segurancaAlimentar;
-	 
-	 private boolean agriculturaSustentavel;
+	 @NotNull
+	 private String descricao;
 	 
 	 @NotBlank
-	 @Size (min= 8,max=100) 
+	 @Size (min= 5,max=50) 
 	 private String palavraChave;
 	 
 	 @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
@@ -45,28 +43,12 @@ public class Tema {
 		this.id = id;
 	}
 
-	public boolean isFomeZero() {
-		return fomeZero;
+	public String getDescricao() {
+			return descricao;
 	}
 
-	public void setFomeZero(boolean fomeZero) {
-		this.fomeZero = fomeZero;
-	}
-
-	public boolean isSegurancaAlimentar() {
-		return segurancaAlimentar;
-	}
-
-	public void setSegurancaAlimentar(boolean segurancaAlimentar) {
-		this.segurancaAlimentar = segurancaAlimentar;
-	}
-
-	public boolean isAgriculturaSustentavel() {
-		return agriculturaSustentavel;
-	}
-
-	public void setAgriculturaSustentavel(boolean agriculturaSustentavel) {
-		this.agriculturaSustentavel = agriculturaSustentavel;
+	public void setDescricao(String descricao) {
+			this.descricao = descricao;
 	}
 
 	public String getPalavraChave() {
