@@ -34,6 +34,8 @@ public class Postagem {
 	
 	private String imagem;
 	
+	private int curtidas;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataHora = new java.sql.Date(System.currentTimeMillis());
 	
@@ -99,5 +101,14 @@ public class Postagem {
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
+	}
+
+	public int getCurtidas() {
+		return curtidas;
+	}
+
+	public void setCurtidas(int curtidas) {
+		this.curtidas = curtidas;
 	}	
+	
 }

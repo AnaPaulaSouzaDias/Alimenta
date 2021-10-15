@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Alimenta.Alimenta.model.Postagem;
 import com.Alimenta.Alimenta.repository.PostagemRepository;
+import com.Alimenta.Alimenta.service.PostagemService;
 
 @RestController
 @RequestMapping("/postagem")
@@ -26,6 +27,9 @@ public class PostagemController {
 	@Autowired
 	private PostagemRepository repository;
 	
+	@Autowired
+	private PostagemService service;
+
 	@GetMapping
 	public ResponseEntity<List <Postagem>> GetAll() {
 		return ResponseEntity.ok(repository.findAll());
@@ -54,6 +58,17 @@ public class PostagemController {
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(repository.save(postagem));
 	}
+	
+	@PutMapping("/curtir/{id}")
+	public ResponseEntity<Postagem> curtirPostagemId(@PathVariable Long id) {
+		return ResponseEntity.status(HttpStatus.OK).body(service.curtir(id));
+	}
+	
+	@PutMapping("/descurtir/{id}")
+	public ResponseEntity<Postagem> descurtirPostagemId (@PathVariable Long id) {
+		return ResponseEntity.status(HttpStatus.OK).body(service.descurtir(id));
+	}
+
 	
 	@DeleteMapping("/{id}")
 	public void delete (@PathVariable long id) {

@@ -10,4 +10,8 @@ import com.Alimenta.Alimenta.model.Postagem;
 @Repository
 public interface PostagemRepository extends JpaRepository<Postagem, Long> {
 	public List <Postagem> findAllByTituloContainingIgnoreCase (String titulo);
+
+	public List<Postagem> findAllByUsuario_Id(Long id);
+	
+	public List<Postagem> findAllByTema_TemaContainingIgnoreCase(String tema);
 }
